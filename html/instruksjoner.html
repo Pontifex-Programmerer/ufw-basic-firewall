@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruksjonsøvelser for UFW</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Instruksjonsøvelser for UFW</h1>
+        <p>Disse øvelsene kan utføres på en lab-maskin som støtter og kjører UFW. Målet er å forstå grunnleggende funksjoner i UFW, lage regler og observere hvordan de fungerer.</p>
+
+        <div class="task">
+            <h2>Oppgave 1: Aktiver og sjekk UFW-status</h2>
+            <div class="instructions">
+                <p>1. Logg inn på lab-maskinen.</p>
+                <p>2. Sjekk gjeldende status for UFW:</p>
+                <code class="command">sudo ufw status</code>
+                <p>3. Aktiver UFW:</p>
+                <code class="command">sudo ufw enable</code>
+                <p>4. Bekreft at UFW er aktiv ved å sjekke status på nytt.</p>
+            </div>
+            <p class="summary">Oppsummering: Du har aktivert UFW og lært hvordan du sjekker om brannmuren er aktiv. Dette gir grunnleggende beskyttelse for systemet ditt.</p>
+        </div>
+
+        <div class="task">
+            <h2>Oppgave 2: Tillat lokal tilgang</h2>
+            <div class="instructions">
+                <p>1. Legg til en regel som kun tillater trafikk på en valgt port (for eksempel 8080) fra localhost:</p>
+                <code class="command">sudo ufw allow from 127.0.0.1 to any port 8080</code>
+                <p>2. Verifiser regelen ved å liste opp UFW-regler:</p>
+                <code class="command">sudo ufw status</code>
+                <p>3. Test forbindelsen lokalt.</p>
+            </div>
+            <p class="summary">Oppsummering: Du har konfigurert UFW til å tillate trafikk kun fra localhost. Dette sikrer at ingen eksterne tilkoblinger er mulig for denne porten.</p>
+        </div>
+
+        <div class="task">
+            <h2>Oppgave 3: Tillat tilgang fra et spesifikt LAN</h2>
+            <div class="instructions">
+                <p>1. Tillat tilkoblinger til en valgt port (for eksempel 22 for SSH) kun fra ditt LAN (for eksempel 10.12.X.0/24):</p>
+                <code class="command">sudo ufw allow from 10.12.X.0/24 to any port 22</code>
+                <p>2. Verifiser at kun enheter fra ditt LAN har tilgang.</p>
+            </div>
+            <p class="summary">Oppsummering: Du har lært å begrense tilgang til en port basert på nettverkssegmenter, noe som forbedrer sikkerheten ved å tillate kun lokale enheter.</p>
+        </div>
+
+        <div class="task">
+            <h2>Oppgave 4: Blokker trafikk fra en IP</h2>
+            <div class="instructions">
+                <p>1. Identifiser en test-IP-adresse (for eksempel 10.12.X.100) som skal blokkeres.</p>
+                <p>2. Blokker all trafikk fra denne IP-en:</p>
+                <code class="command">sudo ufw deny from 10.12.X.100</code>
+                <p>3. Bekreft blokkeringen ved å teste forbindelsen fra den blokkerte IP-en.</p>
+            </div>
+            <p class="summary">Oppsummering: Du har blokkert trafikk fra en spesifikk IP. Dette er nyttig for å hindre uønsket eller mistenkelig aktivitet på serveren.</p>
+        </div>
+
+        <div class="task">
+            <h2>Oppgave 5: Aktiver logging</h2>
+            <div class="instructions">
+                <p>1. Slå på UFW-logging:</p>
+                <code class="command">sudo ufw logging on</code>
+                <p>2. Vis loggen for å se tillatte og avviste forbindelser:</p>
+                <code class="command">sudo less /var/log/ufw.log</code>
+                <p>3. Observer hvordan reglene dine reflekteres i loggen.</p>
+            </div>
+            <p class="summary">Oppsummering: Ved å aktivere logging kan du overvåke hvilke tilkoblinger som er tillatt eller avvist, noe som gir innsikt i trafikken som går gjennom systemet.</p>
+        </div>
+
+        <div class="task">
+            <h2>Oppgave 6: Test ekstern tilgang</h2>
+            <div class="instructions">
+                <p>1. Tillat tilgang til en valgt port (for eksempel 80 for HTTP) fra en ekstern enhet eller VPN:</p>
+                <code class="command">sudo ufw allow from &lt;ekstern-IP-område&gt; to any port 80</code>
+                <p>2. Verifiser at den eksterne enheten får tilgang.</p>
+            </div>
+            <p class="summary">Oppsummering: Du har konfigurert UFW til å tillate ekstern tilgang, noe som er nyttig for å sikre tjenester for eksterne brukere.</p>
+        </div>
+
+        <div class="task">
+            <h2>Oppgave 7: Tilbakestill regler</h2>
+            <div class="instructions">
+                <p>1. Tilbakestill UFW til standardinnstillingene:</p>
+                <code class="command">sudo ufw reset</code>
+                <p>2. Konfigurer UFW med minimumsregler som tillater:</p>
+                <ul>
+                    <li>Lokal tilgang til nødvendige tjenester.</li>
+                    <li>Tilgang fra spesifikke LAN-enheter.</li>
+                    <li>Eventuell ekstern tilgang som trengs.</li>
+                </ul>
+            </div>
+            <p class="summary">Oppsummering: Ved å tilbakestille UFW og legge til minimumsregler, kan du sikre at brannmuren kun tillater nødvendig trafikk.</p>
+        </div>
+    </div>
+    <section class="task">
+        <h1><a href="../index.html">forrige</a><-----------><a href="/html/oppgaver.html">neste</a></h1>
+    </section>
+</body>
+</html>

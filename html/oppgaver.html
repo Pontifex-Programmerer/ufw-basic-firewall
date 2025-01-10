@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UFW Oppgaver</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <script src="../js/main.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Oppgaver for UFW</h1>
+        <p>Disse oppgavene bygger videre på instruksjonssettet. Du skal selv finne ut hvilke kommandoer som trengs for å løse oppgavene. Husk å teste endringene dine og dokumentere resultatene.</p>
+
+        <div class="task">
+            <h2>Oppgave 1: Begrens tilgang til MongoDB</h2>
+            <div class="instructions">
+                <p>Du skal konfigurere brannmuren slik at:</p>
+                <ul>
+                    <li>Kun en spesifikk maskin i LAN-et, kalt API-server, kan koble til MongoDB-tjenesten på port 27017.</li>
+                    <li>Ingen andre maskiner skal ha tilgang til MongoDB.</li>
+                </ul>
+                <p>Tips: Tenk over hvordan du identifiserer og spesifiserer API-serverens IP-adresse.</p>
+            </div>
+        </div>
+
+        <div class="task">
+            <h2>Oppgave 2: Tillat kun SSH fra LAN</h2>
+            <div class="instructions">
+                <p>Sørg for at SSH kun er tilgjengelig fra maskiner i samme LAN som databasen. Alle andre tilkoblingsforsøk skal blokkeres.</p>
+                <ul>
+                    <li>Hvilken port brukes vanligvis for SSH?</li>
+                    <li>Hvordan definerer du LAN-et ditt?</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="task">
+            <h2>Oppgave 3: Blokker utgående trafikk</h2>
+            <div class="instructions">
+                <p>MDB-serveren skal ikke kunne initiere utgående tilkoblinger. Konfigurer brannmuren for å blokkere all utgående trafikk.</p>
+                <ul>
+                    <li>Unntak: Trafikk som er nødvendig for å opprettholde serverens funksjonalitet, for eksempel DNS-oppslag, kan tillates.</li>
+                    <li>Hvordan tester du at utgående trafikk faktisk er blokkert?</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section class="task">
+        <h1><a href="/html/instruksjoner.html">forrige</a></h1>
+    </section>
+</body>
+</html>
